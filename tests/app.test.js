@@ -1,7 +1,6 @@
 
 const request = require('supertest');
 const { app } = require('../lib/app');
-
 describe('', () => {
   it('able to parse request and send response for GET /', () => {
     return request(app)
@@ -18,6 +17,15 @@ describe('', () => {
       .then(res => {
         expect(res.status).toEqual(400);
         expect(res.text).toEqual(expect.stringContaining('sorry'));
+      });
+  });
+
+  it('able to parse request and send response for GET /red', () => {
+    return request(app)
+      .get('/red')
+      .then(res => {
+        expect(res.status).toEqual(200);
+        expect(res.text).toEqual(expect.stringContaining('red'));
       });
   });
 });
