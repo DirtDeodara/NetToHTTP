@@ -46,4 +46,17 @@ describe('', () => {
         expect(res.text).toEqual(expect.stringContaining('blue'));
       });
   });
+
+  it('able to parse request and send response for GET /dog', () => {
+    return request(app)
+      .get('/dog')
+      .then(res => {
+        expect(res.status).toEqual(200);
+        expect(res.body).toEqual({
+          name: 'Harvey',
+          age: 9,
+          weight: 55
+        });
+      });
+  });
 });
