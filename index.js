@@ -1,12 +1,5 @@
+const { app } = require('./lib/app');
 
-const { createServer } = require('net');
-
-const server = createServer(sock => {
- 
-  sock.on('data', data => {
-    console.log('from client', data.toString());
-    sock.write(data);
-  });
+app.listen(9999, () => {
+  console.log('vigilantly listening on port 9999');
 });
-
-server.listen(9999);
