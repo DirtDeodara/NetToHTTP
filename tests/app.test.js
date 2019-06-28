@@ -28,4 +28,22 @@ describe('', () => {
         expect(res.text).toEqual(expect.stringContaining('red'));
       });
   });
+
+  it('able to parse request and send response for GET /green', () => {
+    return request(app)
+      .get('/green')
+      .then(res => {
+        expect(res.status).toEqual(200);
+        expect(res.text).toEqual(expect.stringContaining('green'));
+      });
+  });
+
+  it('able to parse request and send response for GET /blue', () => {
+    return request(app)
+      .get('/blue')
+      .then(res => {
+        expect(res.status).toEqual(200);
+        expect(res.text).toEqual(expect.stringContaining('blue'));
+      });
+  });
 });
