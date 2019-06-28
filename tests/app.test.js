@@ -59,4 +59,13 @@ describe('', () => {
         });
       });
   });
+
+  it('anything else', () => {
+    return request(app)
+      .get('/thang')
+      .then(res => {
+        expect(res.status).toEqual(404);
+        expect(res.text).toEqual(expect.stringContaining('Not Found'));
+      });
+  });
 });
